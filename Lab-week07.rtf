@@ -1,0 +1,245 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 Monaco;
+\f3\fnil\fcharset0 TrebuchetMS;\f4\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red11\green96\blue192;\red0\green0\blue0;\red0\green0\blue255;
+\red127\green0\blue85;\red50\green147\blue153;\red76\green76\blue76;\red42\green0\blue255;\red27\green29\blue31;
+\red255\green255\blue255;\red0\green0\blue0;\red13\green0\blue129;\red235\green236\blue237;\red36\green38\blue41;
+\red37\green127\blue159;\red43\green39\blue19;\red255\green255\blue255;\red13\green0\blue129;\red235\green236\blue237;
+\red36\green38\blue41;\red37\green127\blue159;\red43\green39\blue19;\red127\green0\blue85;\red0\green0\blue192;
+\red42\green0\blue255;\red100\green100\blue100;\red106\green62\blue62;\red0\green0\blue0;\red38\green38\blue38;
+\red50\green147\blue153;\red222\green0\blue172;\red192\green0\blue0;\red76\green76\blue76;\red100\green0\blue103;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c46667\c80000;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c100000;
+\csgenericrgb\c49804\c0\c33333;\csgenericrgb\c19608\c57647\c60000;\csgenericrgb\c29804\c29804\c29804;\csgenericrgb\c16471\c0\c100000;\cssrgb\c14118\c15294\c16078;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;\cssrgb\c6275\c6275\c58039;\cssrgb\c93725\c94118\c94510;\cssrgb\c18824\c20000\c21176;
+\cssrgb\c16863\c56863\c68627;\cssrgb\c22353\c20000\c9412;\cssrgb\c100000\c100000\c100000;\cssrgb\c6275\c6275\c58039;\cssrgb\c93725\c94118\c94510;
+\cssrgb\c18824\c20000\c21176;\cssrgb\c16863\c56863\c68627;\cssrgb\c22353\c20000\c9412;\csgenericrgb\c49804\c0\c33333;\csgenericrgb\c0\c0\c75294;
+\csgenericrgb\c16471\c0\c100000;\csgenericrgb\c39216\c39216\c39216;\csgenericrgb\c41569\c24314\c24314;\csgenericrgb\c0\c0\c0;\cssrgb\c20000\c20000\c20000;
+\csgenericrgb\c19608\c57647\c60000;\csgenericrgb\c87059\c0\c67451;\csgenericrgb\c75294\c0\c0;\csgenericrgb\c29804\c29804\c29804;\csgenericrgb\c39216\c0\c40392;
+}
+\margl1440\margr1440\vieww15360\viewh12120\viewkind0
+\deftab720
+\pard\tx720\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+Question1:\cf3 \
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+
+\f1\b0\fs32 \cf4 Product \cf3 defines the interface of objects the factory method creates. 
+\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf5 \kerning1\expnd0\expndtw0 trait\cf0  \cf6 Product\cf0  \{\
+  \cf5 def\cf0  \cf7 createProduct\cf0 \
+\}\
+\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+
+\f1\fs32 \cf4 \expnd0\expndtw0\kerning0
+ConcreteProduct \cf3 implements the \cf4 Product \cf3 interface. 
+\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf5 \kerning1\expnd0\expndtw0 class\cf0  ConcreteProduct \cf5 extends\cf0  \cf6 Product\cf0  \{\
+    \cf5 override\cf0  \cf5 def\cf0  \cf7 createProduct\cf0  \{ \cf7 println\cf0 (\cf8 "product created"\cf0 ) \}\
+\}\
+\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+
+\f1\fs32 \cf4 \expnd0\expndtw0\kerning0
+Creator \cf3 declares the factory method, which returns an object of type \cf4 Product\cf3 . \cf4 Creator \cf3 may also define a default implementation of the factory method that returns a default \cf4 ConcreteProduct \cf3 object. We may call the factory method to create a \cf4 Product \cf3 object. 
+\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf5 \kerning1\expnd0\expndtw0 abstract\cf0  \cf5 class\cf0  Creator \{\
+\
+  \cf5 def\cf0  \cf7 factoryMethod\cf0 (): Product \{\
+    \
+  \}\
+\
+\}\
+\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+
+\f1\fs32 \cf4 \expnd0\expndtw0\kerning0
+ConcreteCreator \cf3 overrides the factory method to return an instance of a \cf4 ConcreteProduct\cf3 . 
+\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf5 \kerning1\expnd0\expndtw0 class\cf0  ConcreteCreator \cf5 extends\cf0  Creator \{\
+\
+  \cf5 def\cf0  \cf7 factoryMethod\cf0 (): \cf6 Product\cf0  = \cf5 new\cf0  ConcreteProduct()\
+  \
+\}\
+\
+\pard\tx720\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+Question2 (a):\
+\pard\pardeftab720\sl340\sa300\partightenfactor0
+
+\b0 \cf9 \cb10 \outl0\strokewidth0 \strokec9 With lazy initialization you create instance only when its needed and not when the class is loaded. So you escape the unnecessary object creation. Lazy initialization \cf11 \strokec11 is a way to ensure only one instance of Singleton class is created through application life cycle, whereas 
+\f1\fs32 \cf3 \cb1 \outl0\strokewidth0 initialize it in its field declaration (eager initialization), object is created as early as the class is loaded
+\f0\fs28 \cf11 \outl0\strokewidth0 \strokec11 \
+\pard\pardeftab720\sl220\partightenfactor0
+
+\b \cf2 \outl0\strokewidth0 \
+
+\b0 \cf11 \cb10 \outl0\strokewidth0 \strokec11 is called early loading because Singleton instance is created when class is loaded into memory.
+\f3\fs20 \cb1 \
+\
+
+\f0\b\fs28 Lazy
+\f3\fs20 :\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f4\b0\fs26 \cf12 \cb13 \strokec12 \
+public\cf14 \strokec14  \cf12 \strokec12 class\cf14 \strokec14  \cf15 \strokec15 Singleton\cf14 \strokec14  \
+\{ \
+  \cf12 \strokec12 private\cf14 \strokec14  \cf12 \strokec12 static\cf14 \strokec14  \cf15 \strokec15 Singleton\cf14 \strokec14  INSTANCE = \cf12 \strokec12 null\cf14 \strokec14 ; \
+  \cf12 \strokec12 private\cf14 \strokec14  \cf15 \strokec15 Singleton\cf14 \strokec14 () \{\} \
+  \cf12 \strokec12 public\cf14 \strokec14  \cf12 \strokec12 static\cf14 \strokec14  \cf15 \strokec15 Singleton\cf14 \strokec14  getInstance() \
+  \{ \
+    \cf12 \strokec12 if\cf14 \strokec14  (INSTANCE == \cf12 \strokec12 null\cf14 \strokec14 ) \
+       INSTANCE = \cf12 \strokec12 new\cf14 \strokec14  \cf15 \strokec15 Singleton\cf14 \strokec14 (); \
+    \cf12 \strokec12 return\cf14 \strokec14  INSTANCE; \
+  \} \
+\}\cf16 \strokec16 \
+\pard\pardeftab720\sl220\partightenfactor0
+
+\f0\fs28 \cf3 \cb17 \outl0\strokewidth0 This is called lazy loading because Singleton instance is created only when client calls \cb1 getInstance()\cb17  method
+\f3\fs20 \cf11 \cb1 \outl0\strokewidth0 \strokec11 \
+\pard\pardeftab720\sl364\partightenfactor0
+\cf11 \
+\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f4\fs26 \cf18 \cb19 \outl0\strokewidth0 public\cf20  \cf18 class\cf20  \cf21 Singleton\cf20  \
+\{ \
+  \cf18 private\cf20  \cf18 static\cf20  \cf21 Singleton\cf20  INSTANCE = \cf18 new\cf20  \cf21 Singleton\cf20 (); \
+  \cf18 private\cf20  \cf21 Singleton\cf20 () \{\} \
+  \cf18 public\cf20  \cf18 static\cf20  \cf21 Singleton\cf20  getInstance() \
+  \{ \
+    \cf18 return\cf20  INSTANCE; \
+  \} \
+\}\cf22 \
+\pard\pardeftab720\sl220\partightenfactor0
+
+\f3\fs20 \cf3 \cb1 \
+\pard\pardeftab720\sl364\partightenfactor0
+
+\f0\fs28 \cf3 \cb17 This is called 
+\f1\fs32 \cf3 \cb1 eager initialization
+\f0\fs28 \cf3 \cb17  because Singleton instance is created when class is loaded into memory.\
+\
+\pard\tx720\pardeftab720\sl360\sa240\partightenfactor0
+
+\b \cf2 \cb1 Question2 (b):\
+Following is the SingletonProtected class\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf23 \kerning1\expnd0\expndtw0 import\cf0  java.io.Serializable;\
+\
+\cf23 public\cf0  \cf23 class\cf0  SingletonProtected \cf23 implements\cf0  Serializable,Cloneable\{\
+\
+\cf23 private\cf0  \cf23 static\cf0  \cf23 final\cf0  \cf23 long\cf0  \cf24 serialVersionUID\cf0  = 1L;\
+\
+\cf23 private\cf0  \cf23 static\cf0  SingletonProtected \cf24 singleton\cf0 =\cf23 null\cf0 ;\
+\cf23 private\cf0  SingletonProtected()\{\
+	System.\cf24 out\cf0 .println(\cf25 "Singleton Constructor Running..."\cf0 );\
+	\}\
+\
+\cf23 public\cf0  \cf23 static\cf0  SingletonProtected getInstance()\{\
+    \cf23 if\cf0 (\cf24 singleton\cf0 ==\cf23 null\cf0 )\{\
+        \cf24 singleton\cf0 =\cf23 new\cf0  SingletonProtected();\
+    \}\
+    \cf23 return\cf0  \cf24 singleton\cf0 ;   \
+	\}\
+\
+\cf26 @Override\cf0 \
+\cf23 public\cf0  Object clone() \cf23 throws\cf0  CloneNotSupportedException\{\
+    \cf23 return\cf0  \cf23 super\cf0 .clone();\
+	\}\
+\}\
+\
+\pard\tx720\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+Following is the Test class\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf23 \kerning1\expnd0\expndtw0 public\cf0  \cf23 static\cf0  \cf23 void\cf0  main(String[] \cf27 args\cf0 ) \cf23 throws\cf0  Exception \{\
+    SingletonProtected \cf27 \ul \ulc27 orginalSingletonObject\cf0 \ulnone  = SingletonProtected.getInstance();\
+    \
+    \ul Class\ulnone  \cf27 clazz\cf0  = SingletonProtected.\cf23 class\cf0 ;\
+\
+    \ul Constructor\ulnone  \cf27 cons\cf0  = \cf27 \ul \ulc27 clazz\cf0 \ulc0 .getDeclaredConstructor()\ulnone ;\
+    \cf27 cons\cf0 .setAccessible(\cf23 true\cf0 );\
+\
+    SingletonProtected \cf27 \ul \ulc27 s2\cf0 \ulnone  = (SingletonProtected) \cf27 cons\cf0 .newInstance();\
+   \}\
+\}\
+\
+\pard\tx720\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+Following is the output\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf0 \kerning1\expnd0\expndtw0 Singleton Constructor Running...\
+Singleton Constructor Running...\
+\pard\tx720\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+\
+\
+Question3:\
+
+\b0 \cf28 Following is the code for
+\b \cf2  \cf0 \kerning1\expnd0\expndtw0 XpayToPayDAdapter
+\b0  \cf29 \cb10 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec29 adapter that implements the PayD interface\cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 :
+\b \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf23 \kerning1\expnd0\expndtw0 class\cf0  XpayToPayDAdapter(\cf23 private\cf0  \cf23 val\cf0  \cf24 xpay\cf0 : \cf30 Xpay\cf0 ) \cf23 extends\cf0  \cf30 PayD\cf0  \{\
+\
+  @\cf31 BeanProperty\cf0 \
+  \cf23 var\cf0  \cf32 custCardNo\cf0 : \cf30 String\cf0  = _\
+\
+  @\cf31 BeanProperty\cf0 \
+  \cf23 var\cf0  \cf32 cardOwnerName\cf0 : \cf30 String\cf0  = _\
+\
+  @\cf31 BeanProperty\cf0 \
+  \cf23 var\cf0  \cf32 cardExpMonthDate\cf0 : \cf30 String\cf0  = _\
+\
+  \cf23 private\cf0  \cf23 var\cf0  \cf32 cVVNo\cf0 : java.lang.Integer = _\
+\
+  @\cf31 BeanProperty\cf0 \
+  \cf23 var\cf0  \cf32 totalAmount\cf0 : java.lang.Double = _\
+\
+  \cf33 setProp\cf0 ()\
+\
+  \cf23 override\cf0  \cf23 def\cf0  \cf33 getCVVNo\cf0 (): java.lang.Integer = \cf32 cVVNo\cf0 \
+\
+  \cf23 override\cf0  \cf23 def\cf0  \cf33 setCVVNo\cf0 (\cf34 cVVNo\cf0 : java.lang.Integer): Unit = \{\
+    \cf23 this\cf0 .\cf32 cVVNo\cf0  = \cf34 cVVNo\cf0 \
+  \}\
+\
+  \cf23 private\cf0  \cf23 def\cf0  \cf33 setProp\cf0 (): Unit = \{\
+    \cf23 this\cf0 .\cf32 cardOwnerName\cf0  = \cf23 this\cf0 .\cf24 xpay\cf0 .\cf33 getCustomerName\cf0 \
+    \cf23 this\cf0 .\cf32 custCardNo\cf0  = \cf23 this\cf0 .\cf24 xpay\cf0 .\cf33 getCreditCardNo\cf0 \
+    \cf23 this\cf0 .\cf32 cardExpMonthDate\cf0  = \cf23 this\cf0 .\cf24 xpay\cf0 .\cf33 getCardExpMonth\cf0  \cf33 +\cf0  \cf25 "/"\cf0  \cf33 +\cf0  \cf23 this\cf0 .\cf24 xpay\cf0 .\cf33 getCardExpYear\cf0 \
+    \cf23 this\cf0 .\cf32 cVVNo\cf0  = \cf23 \ul \ulc23 this\cf0 \ulc0 .\cf24 \ulc24 xpay\cf0 \ulc0 .\cf33 \ulc33 getCardCVVNo\cf0 \ulc0 .\cf33 \ulc33 intValue\cf0 \ulc0 ()\ulnone \
+    \cf23 this\cf0 .\cf32 totalAmount\cf0  = \cf23 this\cf0 .\cf24 xpay\cf0 .\cf33 getAmount\cf0 \
+  \}\
+\
+\}\
+\
+
+\f0\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+\
+
+\f2\b0\fs26 \cf0 \kerning1\expnd0\expndtw0 \
+}
