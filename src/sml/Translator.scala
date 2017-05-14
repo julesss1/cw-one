@@ -1,5 +1,7 @@
 package sml
 
+import java.util.ArrayList
+
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  */
@@ -23,25 +25,33 @@ class Translator(fileName: String) {
       val fields = line.split(" ")
       if (fields.length > 0) {
         labels.add(fields(0))
-        fields(1) match {
-          case ADD =>
-            program = program :+ AddInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case LIN =>
-            program = program :+ LinInstruction(fields(0), fields(2).toInt, fields(3).toInt)
-          case MUL =>
-            program = program :+ MulInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case SUB =>
-            program = program :+ SubInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case OUT =>
-            program = program :+ OutInstruction(fields(0), fields(2).toInt)
-          case BNZ =>
-            program = program :+ BnzInstruction(fields(0), fields(2).toInt, fields(3))
-          case x =>
-            println(s"Unknown instruction $x")
+        val cl = getClass(fields(1))
+        val apply = cl.getMethods().find(m => m.getName().equals("apply")).get
+        val types = apply.getParameterTypes
+        var args = new ArrayList[Object]()
+        for (i <- fields.indices) {
+
+          if (i == 0) {
+            args.add(fields(i))
+          } else if (i != 1) {
+            types(i - 1).toString match {
+              case "int"                    => args.add(fields(i).asInstanceOf[Object])
+              case "class java.lang.String" => args.add(fields(i))
+            }
+          }
         }
-      }
+        import scala.collection.JavaConversions._
+        val instance = apply.invoke(this, args.toSeq: _*).asInstanceOf[Instruction]
+        program = program :+ instance
+      }else
+        println("Unknown instruction " + fields(1))
     }
     new Machine(labels, program)
+  }
+  private def getClass(arg: String) = {
+    val head = arg.charAt(0).toUpper;
+    val tail = arg.substring(1);
+    Class.forName("sml." + head + tail + "Instruction")
   }
 }
 
