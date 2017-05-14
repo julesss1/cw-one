@@ -30,11 +30,11 @@ case class Machine(labels: Labels, prog: Vector[Instruction]) {
 
 object Machine {
   def main(args: Array[String]) {
-    if (args.length == 0) {
+    if (args.length < 0) {
       println("Machine: args should be sml code file to execute")
     } else {
       println("SML interpreter - Scala version")
-
+      
       val m = Translator(args(0)).readAndTranslate(new Machine(Labels(), Vector()))
 
       println("Here is the program; it has " + m.prog.size + " instructions.")
